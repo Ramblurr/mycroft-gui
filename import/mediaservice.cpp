@@ -236,7 +236,7 @@ void MediaService::onMediaStatusChanged(QMediaPlayer::MediaStatus status)
         {
             availableMetaKey = metadataAvailableList.at(idx);
             availableMetaVal = m_player->metaData(availableMetaKey);
-            m_metadataList.insert(QVariantMap({{availableMetaKey, availableMetaVal}}));
+            m_metadataList.insert(availableMetaKey, availableMetaVal);
 
             if(availableMetaKey == QStringLiteral("Title")){
                 m_title = m_player->metaData(availableMetaKey).toString();
