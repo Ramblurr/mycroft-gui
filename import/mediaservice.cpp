@@ -176,6 +176,26 @@ void MediaService::playerRestart()
     playURL(m_track);
 }
 
+void MediaService::playerNext()
+{
+    m_controller->sendRequest(QStringLiteral("gui.player.media.service.get.next"), m_emptyData);
+}
+
+void MediaService::playerPrevious()
+{
+    m_controller->sendRequest(QStringLiteral("gui.player.media.service.get.previous"), m_emptyData);
+}
+
+void MediaService::playerRepeat()
+{
+    m_controller->sendRequest(QStringLiteral("gui.player.media.service.get.repeat"), m_emptyData);
+}
+
+void MediaService::playerShuffle()
+{
+    m_controller->sendRequest(QStringLiteral("gui.player.media.service.get.shuffle"), m_emptyData);
+}
+
 QMediaPlayer::State MediaService::getPlaybackState()
 {
     return m_playerState;

@@ -51,6 +51,10 @@ public Q_SLOTS:
     void playerPause();
     void playerContinue();
     void playerRestart();
+    void playerNext();
+    void playerPrevious();
+    void playerShuffle();
+    void playerRepeat();
     void playerSeek(qint64 seekvalue);
     QMediaPlayer::State playbackState() const;
     void setPlaybackState(QMediaPlayer::State playbackState);
@@ -94,6 +98,7 @@ private:
     QString m_title;
     QString m_thumbnail;
     bool m_repeat;
+    QVariantMap m_emptyData;
     QVariantMap m_metadataList;
     QVariantMap m_playerStateSync;
 
