@@ -170,6 +170,17 @@ void MediaService::playerContinue()
     setPlaybackState(QMediaPlayer::PlayingState);
 }
 
+void MediaService::playerRestart()
+{
+    m_player->stop();
+    playURL(m_track);
+}
+
+QMediaPlayer::State MediaService::getPlaybackState()
+{
+    return m_playerState;
+}
+
 void MediaService::setPlaybackState(QMediaPlayer::State playbackState)
 {
     m_playerState = playbackState;
@@ -204,6 +215,9 @@ QVariantMap MediaService::getCPSMeta()
     };
     if(!m_title.isEmpty()){
         cpsMap.insert(QStringLiteral("title"), m_title);
+    };
+    if(!m_album.isEmpty()){
+        cpsMap.insert(QStringLiteral("album"), m_album);
     };
     if(!m_thumbnail.isEmpty()){
         cpsMap.insert(QStringLiteral("thumbnail"), m_thumbnail);
@@ -288,6 +302,20 @@ void MediaService::onMainSocketIntentReceived(const QString &type, const QVarian
 
         if(data.contains(QStringLiteral("album"))){
             metaVal = data[QStringLiteral("album")].toString();
+            if(!metaVal.isEmpty()){
+                m_album = metaVal;
+            }
+        }
+
+        if(data.contains(QStringLiteral("title"))){
+            metaVal = data[QStringLiteral("title")].toString();
+            if(!metaVal.isEmpty()){
+                m_title = metaVal;
+            }
+        }
+
+        if(data.contains(QStringLiteral("track"))){
+            metaVal = data[QStringLiteral("track")].toString();
             if(!metaVal.isEmpty()){
                 m_title = metaVal;
             }
