@@ -41,6 +41,7 @@ public:
     QVector<double> spectrum() const {return m_spectrum;}
     QAbstractVideoSurface *videoSurface() const;
     void setVidSurface(QAbstractVideoSurface *videoSurface);
+    QMediaPlayer::State getPlaybackState();
 
 public Q_SLOTS:
     void setupProbeSource();
@@ -49,6 +50,11 @@ public Q_SLOTS:
     void playerStop();
     void playerPause();
     void playerContinue();
+    void playerRestart();
+    void playerNext();
+    void playerPrevious();
+    void playerShuffle();
+    void playerRepeat();
     void playerSeek(qint64 seekvalue);
     QMediaPlayer::State playbackState() const;
     void setPlaybackState(QMediaPlayer::State playbackState);
@@ -88,9 +94,11 @@ private:
     QMediaPlayer *m_player;
     QString m_track;
     QString m_artist;
+    QString m_album;
     QString m_title;
     QString m_thumbnail;
     bool m_repeat;
+    QVariantMap m_emptyData;
     QVariantMap m_metadataList;
     QVariantMap m_playerStateSync;
 
