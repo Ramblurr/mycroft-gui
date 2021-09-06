@@ -371,9 +371,9 @@ void MycroftController::sendBinary(const QString &type, const QJsonObject &data,
 void MycroftController::sendText(const QString &message)
 {
     if(!m_appSettingObj->useHivemindProtocol()){
-        sendRequest(QStringLiteral("recognizer_loop:utterance"), QVariantMap({{QStringLiteral("utterances"), QStringList({message})}}));
-    } else {
         sendRequest(QStringLiteral("recognizer_loop:utterance"), QVariantMap({{QStringLiteral("utterances"), QStringList({message})}}), QVariantMap({{QStringLiteral("source"), QStringLiteral("debug_cli")}, {QStringLiteral("destination"), QStringLiteral("skills")}}));
+    } else {
+        sendRequest(QStringLiteral("recognizer_loop:utterance"), QVariantMap({{QStringLiteral("utterances"), QStringList({message})}}), QVariantMap({{QStringLiteral("source"), QStringLiteral("mycroft-gui")}, {QStringLiteral("destination"), QStringLiteral("skills")}}));
     }
 }
 
