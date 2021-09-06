@@ -130,7 +130,7 @@ Kirigami.ScrollablePage {
         }
 
         Controls.Switch {
-            text: "Hivemind Protocol"
+            text: "Bus Isolation"
             checked: Mycroft.GlobalSettings.useHivemindProtocol
             onCheckedChanged: Mycroft.GlobalSettings.useHivemindProtocol = checked
         }
