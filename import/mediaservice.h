@@ -101,6 +101,7 @@ private:
     QVariantMap m_emptyData;
     QVariantMap m_metadataList;
     QVariantMap m_playerStateSync;
+    QVariantMap m_currentMediaStatus;
 
 signals:
     int levels(double left, double right);
