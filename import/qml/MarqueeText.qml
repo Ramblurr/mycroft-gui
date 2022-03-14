@@ -101,14 +101,14 @@ Item {
                 target: marqueeText
                 property: "x"
                 from: 0
-                to: !righToLeft ? (control.x + marqueeText.paintedWidth) + distance : (control.x - marqueeText.paintedWidth) - distance
+                to: !rightToLeft ? (control.x + marqueeText.paintedWidth) + distance : (control.x - marqueeText.paintedWidth) - distance
                 duration: speed
             }
 
             PropertyAnimation {
                 target: coverText
                 property: "x"
-                from: !righToLeft ? (control.x - marqueeText.paintedWidth) - distance  : (control.x + marqueeText.paintedWidth) + distance
+                from: !rightToLeft ? (control.x - marqueeText.paintedWidth) - distance  : (control.x + marqueeText.paintedWidth) + distance
                 to: marqueeText.x
                 duration: speed
             }

@@ -542,7 +542,7 @@ Module {
         Property { name: "speed"; type: "int" }
         Property { name: "delay"; type: "int" }
         Property { name: "marqueeWidth"; type: "QVariant" }
-        Property { name: "righToLeft"; type: "bool" }
+        Property { name: "rightToLeft"; type: "bool" }
         Property { name: "distance"; type: "int" }
         Property { name: "color"; type: "QColor" }
         Property { name: "text"; type: "string" }
