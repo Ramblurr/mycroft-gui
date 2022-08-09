@@ -103,3 +103,63 @@ void GlobalSettings::setUseHivemindProtocol(bool useHivemindProtocol)
     m_settings.setValue(QStringLiteral("useHivemindProtocol"), useHivemindProtocol);
     emit useHivemindProtocolChanged();
 }
+
+bool GlobalSettings::useEntryNameSpaceAnimation() const
+{
+    return m_settings.value(QStringLiteral("useEntryNameSpaceAnimation"), true).toBool();
+}
+
+void GlobalSettings::setUseEntryNameSpaceAnimation(bool useEntryNameSpaceAnimation)
+{
+    if (GlobalSettings::useEntryNameSpaceAnimation() == useEntryNameSpaceAnimation) {
+        return;
+    }
+
+    m_settings.setValue(QStringLiteral("useEntryNameSpaceAnimation"), useEntryNameSpaceAnimation);
+    emit useEntryNameSpaceAnimationChanged();
+}
+
+bool GlobalSettings::useExitNameSpaceAnimation() const
+{
+    return m_settings.value(QStringLiteral("useExitNameSpaceAnimation"), true).toBool();
+}
+
+void GlobalSettings::setUseExitNameSpaceAnimation(bool useExitNameSpaceAnimation)
+{
+    if (GlobalSettings::useExitNameSpaceAnimation() == useExitNameSpaceAnimation) {
+        return;
+    }
+
+    m_settings.setValue(QStringLiteral("useExitNameSpaceAnimation"), useExitNameSpaceAnimation);
+    emit useExitNameSpaceAnimationChanged();
+}
+
+bool GlobalSettings::useFocusAnimation() const
+{
+    return m_settings.value(QStringLiteral("useFocusAnimation"), true).toBool();
+}
+
+void GlobalSettings::setUseFocusAnimation(bool useFocusAnimation)
+{
+    if (GlobalSettings::useFocusAnimation() == useFocusAnimation) {
+        return;
+    }
+
+    m_settings.setValue(QStringLiteral("useFocusAnimation"), useFocusAnimation);
+    emit useFocusAnimationChanged();
+}
+
+bool GlobalSettings::useDelegateAnimation() const
+{
+    return m_settings.value(QStringLiteral("useDelegateAnimation"), true).toBool();
+}
+
+void GlobalSettings::setUseDelegateAnimation(bool useDelegateAnimation)
+{
+    if (GlobalSettings::useDelegateAnimation() == useDelegateAnimation) {
+        return;
+    }
+
+    m_settings.setValue(QStringLiteral("useDelegateAnimation"), useDelegateAnimation);
+    emit useDelegateAnimationChanged();
+}

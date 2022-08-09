@@ -36,6 +36,10 @@ class GlobalSettings : public QObject
     Q_PROPERTY(bool displayRemoteConfig READ displayRemoteConfig WRITE setDisplayRemoteConfig NOTIFY displayRemoteConfigChanged)
     Q_PROPERTY(bool usePTTClient READ usePTTClient WRITE setUsePTTClient NOTIFY usePTTClient)
     Q_PROPERTY(bool useHivemindProtocol READ useHivemindProtocol WRITE setUseHivemindProtocol NOTIFY useHivemindProtocolChanged)
+    Q_PROPERTY(bool useEntryNameSpaceAnimation READ useEntryNameSpaceAnimation WRITE setUseEntryNameSpaceAnimation NOTIFY useEntryNameSpaceAnimationChanged)
+    Q_PROPERTY(bool useExitNameSpaceAnimation READ useExitNameSpaceAnimation WRITE setUseExitNameSpaceAnimation NOTIFY useExitNameSpaceAnimationChanged)
+    Q_PROPERTY(bool useFocusAnimation READ useFocusAnimation WRITE setUseFocusAnimation NOTIFY useFocusAnimationChanged)
+    Q_PROPERTY(bool useDelegateAnimation READ useDelegateAnimation WRITE setUseDelegateAnimation NOTIFY useDelegateAnimationChanged)
 
 public:
     explicit GlobalSettings(QObject *parent=0);
@@ -55,6 +59,14 @@ public:
     void setUsePTTClient(bool usePttClient);
     bool useHivemindProtocol() const;
     void setUseHivemindProtocol(bool useHivemindProtocol);
+    bool useEntryNameSpaceAnimation() const;
+    void setUseEntryNameSpaceAnimation(bool useEntryNameSpaceAnimation);
+    bool useExitNameSpaceAnimation() const;
+    void setUseExitNameSpaceAnimation(bool useExitNameSpaceAnimation);
+    bool useFocusAnimation() const;
+    void setUseFocusAnimation(bool useFocusAnimation);
+    bool useDelegateAnimation() const;
+    void setUseDelegateAnimation(bool useDelegateAnimation);
 
 Q_SIGNALS:
     void webSocketChanged();
@@ -63,6 +75,10 @@ Q_SIGNALS:
     void displayRemoteConfigChanged();
     void usePTTClientChanged();
     void useHivemindProtocolChanged();
+    void useEntryNameSpaceAnimationChanged();
+    void useExitNameSpaceAnimationChanged();
+    void useFocusAnimationChanged();
+    void useDelegateAnimationChanged();
 
 private:
     QSettings m_settings;
