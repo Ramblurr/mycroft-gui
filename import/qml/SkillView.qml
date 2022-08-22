@@ -44,11 +44,19 @@ Mycroft.AbstractSkillView {
 
     onOpenChanged: {
         if (open) {
-            closeAnimation.running = false;
-            openAnimation.restart();
+            if(Mycroft.GlobalSettings.useExitNameSpaceAnimation) {
+                closeAnimation.running = false;
+            }
+            if(Mycroft.GlobalSettings.useEntryNameSpaceAnimation) {
+                openAnimation.restart();
+            }
         } else {
-            openAnimation.running = false;
-            closeAnimation.restart();
+            if(Mycroft.GlobalSettings.useEntryNameSpaceAnimation) {
+                openAnimation.running = false;
+            }
+            if(Mycroft.GlobalSettings.useExitNameSpaceAnimation) {
+                closeAnimation.restart();
+            }
         }
     }
 
@@ -183,7 +191,9 @@ Mycroft.AbstractSkillView {
                             activeSkillsRepeater.currentDelegate = delegate;
                             if (root.open === false) {
                                 root.open = true;
-                                enterAnim.restart();
+                                if(Mycroft.GlobalSettings.useDelegateAnimation) {
+                                    enterAnim.restart();
+                                }
                             }
                         }
 
@@ -252,7 +262,9 @@ Mycroft.AbstractSkillView {
                                     if (model.delegateUi.focus) {
                                         delegatesView.currentIndex = index;
                                         if (root.width >= root.switchWidth) {
-                                            focusAnim.restart();
+                                            if(Mycroft.GlobalSettings.useFocusAnimation) {
+                                                focusAnim.restart();
+                                            }
                                         }
                                     }
                                 }
