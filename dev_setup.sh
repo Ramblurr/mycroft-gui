@@ -29,9 +29,10 @@ show_menus() {
     echo "2. MANJARO/ARCH"
     echo "3. ALPINE LINUX"
     echo "4. openSUSE Leap 15.x"
-    echo "5. OTHERS"
-    echo "6. UPDATE INSTALLATION"
-    echo "7. EXIT"
+    echo "5. Fedora (Fedora 37 tested)"
+    echo "6. OTHERS"
+    echo "7. UPDATE INSTALLATION"
+    echo "8. EXIT"
 }
 
 read_options() {
@@ -43,9 +44,10 @@ read_options() {
 		2) manjaro ;;
 		3) alpine ;;
 		4) opensuse ;;
-		5) others ;;
-		6) updateinstall;;
-		7) exit 0;;
+		5) fedora ;;
+		6) others ;;
+		7) updateinstall;;
+		8) exit 0;;
 		*) echo -e "${RED}Error...${STD}" && sleep 2
 	esac
 }
@@ -94,7 +96,16 @@ opensuse() {
     echo ""
     echo "Please Enter Authentication For Installing System Dependencies"
     sudo zypper --non-interactive install cmake extra-cmake-modules kio-devel kio-extras5 plasma-framework-devel libqt5-qtwebsockets-devel libqt5-qtwebview-devel libqt5-qtdeclarative-devel libqt5-qtmultimedia-devel libQt5QuickControls2-devel libqt5-qtwebengine-devel libqt5-qtbase-devel ki18n-devel kdbusaddons-devel
-  
+}
+
+fedora() {
+    echo "Starting Installation For Fedora"
+    echo ""
+    echo "The development headers for the following packages will be installed: qt5-qtwebsockets-devel qt5-qtwebview-devel qt5-qtdeclarative-devel qt5-qtmultimedia-devel qt5-qtquickcontrols2-devel qt5-qtwebengine-devel qt5-qtbase-devel kf5-plasma-devel kf5-kio-devel kio-extras cmake extra-cmake-modules kf5-ki18n-devel kf5-kdbusaddons-devel"
+    echo ""
+    echo "Please Enter Authentication For Installing System Dependencies"
+    sudo sudo dnf --assumeyes install qt5-qtwebsockets-devel qt5-qtwebview-devel qt5-qtdeclarative-devel qt5-qtmultimedia-devel qt5-qtquickcontrols2-devel qt5-qtwebengine-devel qt5-qtbase-devel kf5-plasma-devel kf5-kio-devel kio-extras cmake extra-cmake-modules kf5-ki18n-devel kf5-kdbusaddons-devel
+    build_gui
 }
 
 updateinstall() {
